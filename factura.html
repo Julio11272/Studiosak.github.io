@@ -1,0 +1,136 @@
+<html>
+<head>
+    <title>Proceso de Pago - Tienda de Impresión</title>
+    <style>
+        
+        body {
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url(fondo.png);
+        }
+
+        header {
+            background: linear-gradient(30deg, rgb(31, 31, 31), rgb(114, 113, 113));
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .checkout {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #5a5a5a;
+            border-radius: 5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .checkout h2 {
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form-group .half-width {
+            width: 48%;
+        }
+
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .checkout-button {
+            background-color: #3394d4;
+            color: #fff;
+            border: none;
+            padding: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .checkout-button:hover {
+            background-color: #eaee0fbd;
+            color: black;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background:#3498db;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Proceso de Pago</h1>
+    </header>
+    
+    <main>
+        <section class="checkout">
+            <h2>Información de Pago</h2>
+            
+            <div class="form-group">
+                <label for="name">Nombre Completo:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="address">Dirección:</label>
+                <input type="text" id="address" name="address" required>
+            </div>
+            
+            <div class="form-group form-row">
+                <div class="half-width">
+                    <label for="city">Ciudad:</label>
+                    <input type="text" id="city" name="city" required>
+                </div>
+                <div class="half-width">
+                    <label for="zip">Código Postal:</label>
+                    <input type="text" id="zip" name="zip" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label para="credit-card">Número de Tarjeta de Crédito:</label>
+                <input type="text" id="credit-card" name="credit-card" required>
+            </div>
+            
+            <div class="form-group form-row">
+                <div class="half-width">
+                    <label para="exp-date">Fecha de Expiración:</label>
+                    <input type="text" id="exp-date" name="exp-date" placeholder="MM/AA" required>
+                </div>
+                <div class="half-width">
+                    <label para="cvv">CVV:</label>
+                    <input type="text" id="cvv" name="cvv" required>
+                </div>
+            </div>
+            
+            <button class="checkout-button">Confirmar Pedido</button>
+        </section>

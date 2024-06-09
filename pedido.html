@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras Avanzado</title>
+    <link rel="stylesheet" href="pedido.css">
+</head>
+<body>
+    <h1>Mi Pedido</h1>
+    <div class="product">
+        <span>Etiquetas con diseño .</span>
+        <span>$100.00</span>
+        <button onclick="addToCart('Etiquetas con diseño', 100.00)">Comprar</button>
+    </div>
+    <div class="product">
+        <span>Taza con diseño</span>
+        <span>$150.00</span>
+        <button onclick="addToCart('Taza con Diseño ', 150.00)">Comprar</button>
+    </div>
+    <div class="product">
+        <span>Camisa con Diseño </span>
+        <span>$250.00</span>
+        <button onclick="addToCart('Camisa con diseño', 250.00)">Comprar</button>
+    </div>
+
+    <div class="cart">
+        <h2>Resumen del Pedido</h2>
+
+        <ul id="cart-list" class="cart-list"> </ul>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        
+        
+        <div id="summary" class="summary" style="display: none;">
+       
+        <p id="summary-text"></p>
+            <div id="total" class="total">Total: $0.00</div>
+            <br>
+
+            <button class="btn1"> Pagar </button> 
+
+        </div>
+        
+    </div>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function addToCart(product, price) {
+            const existingProduct = cart.find(item => item.product === product);
+            if (existingProduct) {
+                existingProduct.quantity += 1;
+            } else {
+                cart.push({ product, price, quantity: 1 });
+            }
+            saveCart();
+            renderCart();
+        }
+
+        function removeFromCart(product) {
+            cart = cart.filter(item => item.product !== product);
+            saveCart();
+            renderCart();
+        }
+
+        function changeQuantity(product, quantity) {
+            const cartItem = cart.find(item => item.product === product);
+            if (cartItem) {
+                cartItem.quantity = quantity;
+                if (cartItem.quantity <= 0) {
+                    removeFromCart(product);
+                } else {
+                    saveCart();
+                    renderCart();
+                }
+            }
+        }
+
+        function saveCart() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        function renderCart() {
+            const cartList = document.getElementById('cart-list');
+            cartList.innerHTML = '';  // Limpiar la lista antes de renderizar
+            let total = 0;
+            let summaryText = '';
+
+            cart.forEach((item, index) => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `
+                    ${item.product} - $${(item.price * item.quantity).toFixed(2)}
+                    <div >
+                        <button class="remove" onclick="removeFromCart('${item.product}')">Eliminar</button>
+                    </div>
+                `;
+                cartList.appendChild(listItem);
+                total += item.price * item.quantity;
+                summaryText += `${item.product} (x${item.quantity}) - $${(item.price * item.quantity).toFixed(2)}<br>`;
+            });
+
+            document.getElementById('total').innerText = `Total: $${total.toFixed(2)}`;
+            if (cart.length > 0) {
+                document.getElementById('summary').style.display = 'block';
+                document.getElementById('summary-text').innerHTML = summaryText;
+            } else {
+                document.getElementById('summary').style.display = 'none';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', renderCart);
+    </script>
+</body>
+</html>

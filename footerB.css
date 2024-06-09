@@ -1,0 +1,64 @@
+/*Pie de pagina*/
+
+footer
+{
+ min-width: 350px;
+ background-color: rgba(0, 0, 0, 0.800);
+ color: #f3148f;
+ padding: 20px;
+ border-radius: 15px;
+ box-shadow: 0 0 10px rgba(255, 255, 255, 0.836);
+}
+/*Clases de pie de pagina*/
+.contenedorF
+{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    align-content: center;
+    background-color: rgba(74, 75, 74, 0.515);
+    border-radius: 15px;
+    padding: 25px;
+}
+ul > li 
+{
+    list-style: none;
+    padding: 1px;
+}
+div > ul > li > a:hover
+{
+    list-style: none;
+    color: rgb(255, 255, 255)
+}
+.redesS-img{
+   width: 25px;
+   height: auto;
+   border-radius: 25px;
+}
+/*Letras*/
+.Titulos
+{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
+    color: white;
+}
+.Titulos1
+{
+    font-size: larger;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+div> ul> li > a{
+    color:#ffffff;
+    text-decoration: none;
+}
+div > ul > li > a:visited
+{
+    color: #ff65f2;
+}
+div > ul > li > a:hover
+{
+    color: #0452ac;
+    font-size: 18px;
+}

@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;800&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+body{
+    background-image: url(fondo.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+
+}
+.contenedor-acordeon{
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    margin-top: 80px;
+    margin-bottom: 30px;
+}
+.contenedor-acordeon h2{
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 35px;
+}
+.acordeon{
+    background: #a1a1a1;
+}
+.acordeon label{
+    display: block;
+    padding: 20px;
+    font-size: 20px;
+    background: #4b4b4b;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    margin-bottom: 2px;
+    transition: all 300ms ease;
+}
+.acordeon label:hover{
+    background: rgb(234, 247, 55);
+}
+.acordeon .contenido-acordeon{
+    padding: 0px;
+    margin: 0px 20px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: all 300ms ease;
+}
+.btn-acordeon:checked ~ .contenido-acordeon{
+    max-height: 600px;
+    padding: 15px 0px;
+}
+.btn-acordeon{
+    display: none;
+}
